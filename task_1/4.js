@@ -6,7 +6,7 @@ isEven(4); // true
 isEven(5); // false
 */
 
-const isEven = (number) => number % 2 === 0 ? true : false;
+const isEven = (number) => number % 2 === 0;
 
 console.log(isEven(4));
 console.log(isEven(5));

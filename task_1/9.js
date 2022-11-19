@@ -5,7 +5,7 @@ checkStringLength(‘HI’, 2) // Hi
 checkStringLength(‘HI’, 1) // – ‘String is too long!’.
 */
 
-const checkStringLength = (someString, countLetter) => someString.length > countLetter ? 'String is too long!' : someString;
+const checkStringLength = (someString, letterAmount) => someString.length > letterAmount ? 'String is too long!' : someString;
 
 console.log(checkStringLength('HI', 2));
 console.log(checkStringLength('HI', 1));

@@ -8,7 +8,12 @@ sayHello("Viktor"); // Hello, Viktor!
 sayHello("Mark"); // Hi, Mark!
 */
 
-const sayHello = (name) => name === 'Mark' ? `Hi, ${name}!` : `Hello, ${name}!`;
+const sayHello = (name) => {
+    const result = name.toLowerCase();
+    const greeting = result === 'mark' ? 'Hi' : 'Hello';
+
+    return `${greeting}, ${name}!`;
+}
 
 console.log(sayHello('Oleg'));
 console.log(sayHello('Viktor'));

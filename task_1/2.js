@@ -3,6 +3,6 @@
 Найдите гипотенузу k по теореме.
 */
 
-const searchHypotenuse = (oneSide, twoSide) => Math.sqrt(oneSide ** 2 + twoSide ** 2);
+const searchHypotenuse = (firstSide, secondSide) => Math.sqrt(firstSide ** 2 + secondSide ** 2);
 
 console.log(searchHypotenuse(3, 4));
