@@ -12,8 +12,8 @@ someFn(‘javaScript’) // JavascripT
 const someFn = (someString) => {
     const result = someString.toLowerCase();
     const firstLetter = result[0].toUpperCase();
-    const lastLetter = result[result.length - 1].toUpperCase();
     if (result.length % 2 === 0) {
+    const lastLetter = result[result.length - 1].toUpperCase();
         return `${firstLetter}${result.slice(1, result.length - 1)}${lastLetter}`
     }
     return `${firstLetter}${result.slice(1)}`

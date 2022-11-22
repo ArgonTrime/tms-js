@@ -10,7 +10,8 @@ sayHello("Mark"); // Hi, Mark!
 
 const sayHello = (name) => {
     const result = name.toLowerCase();
-    const greeting = result === 'mark' ? 'Hi' : 'Hello';
+    const specialName = 'mark';
+    const greeting = result === specialName ? 'Hi' : 'Hello';
 
     return `${greeting}, ${name}!`;
 }
