@@ -8,15 +8,15 @@ const userList = ['Alex', 'alex', 'Max', 'Vika', 'Petr', 'Alexander'];
 //1
 const cutNameMatch1 = (users, cutLetters) => {
     const result = [];
-    const cutLettersLowerCase = [];
+    const lowerCasedBlacklistedLetters = [];
 
     for(let i = 0; i < cutLetters.length; i++) {
-        cutLettersLowerCase.push(cutLetters[i].toLowerCase());
+        lowerCasedBlacklistedLetters.push(cutLetters[i].toLowerCase());
     }
 
     for(let i = 0; i < users.length; i++) {
-        const firstLetterUser = users[i].slice(0, 1).toLowerCase();
-        if(!cutLettersLowerCase.includes(firstLetterUser)) {
+        const firstLetterUser = users[i][0].toLowerCase();
+        if(!lowerCasedBlacklistedLetters.includes(firstLetterUser)) {
             result.push(users[i]);
         }
     }
@@ -27,18 +27,18 @@ console.log(cutNameMatch1(userList, ['a', 'p']));
 //2
 const cutNameMatch2 = (users, cutLetters) => {
     const result = [];
-    const cutLettersLowerCase = [];
+    const lowerCasedBlacklistedLetters = [];
     let i = 0;
     let j = 0;
 
     while(i < cutLetters.length) {
-        cutLettersLowerCase.push(cutLetters[i].toLowerCase());
+        lowerCasedBlacklistedLetters.push(cutLetters[i].toLowerCase());
         i++;
     }
 
     while(j < users.length) {
-        const firstLetterUser = users[j].slice(0, 1).toLowerCase();
-        if(!cutLettersLowerCase.includes(firstLetterUser)) {
+        const firstLetterUser = users[j][0].toLowerCase();
+        if(!lowerCasedBlacklistedLetters.includes(firstLetterUser)) {
             result.push(users[j]);
         }
         j++;
@@ -50,15 +50,15 @@ console.log(cutNameMatch2(userList, ['a', 'p']));
 //3
 const cutNameMatch3 = (users, cutLetters) => {
     const result = [];
-    const cutLettersLowerCase = [];
+    const lowerCasedBlacklistedLetters = [];
 
     for(const letter of cutLetters) {
-        cutLettersLowerCase.push(letter.toLowerCase());
+        lowerCasedBlacklistedLetters.push(letter.toLowerCase());
     }
 
     for(const user of users) {
         const firstLetterUser = user.slice(0, 1).toLowerCase();
-        if(!cutLettersLowerCase.includes(firstLetterUser)) {
+        if(!lowerCasedBlacklistedLetters.includes(firstLetterUser)) {
             result.push(user);
         }
     }
@@ -68,12 +68,11 @@ console.log(cutNameMatch3(userList, ['a', 'p']));
 
 //4
 const cutNameMatch4 = (users, cutLetters) => {
-    
+    const lowerCasedBlacklistedLetters = cutLetters.map(letter => letter.toLowerCase());
+
     return users.filter(user => {
         const firstLetterUser = user[0].toLowerCase();
-        const letterLowerCase = cutLetters.map(letter => letter.toLowerCase());
-
-        return !letterLowerCase.includes(firstLetterUser);
+        return !lowerCasedBlacklistedLetters.includes(firstLetterUser);
     })
 }
 console.log(cutNameMatch4(userList, ['a', 'p']));

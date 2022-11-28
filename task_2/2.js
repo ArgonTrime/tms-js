@@ -7,8 +7,9 @@ const changingCaseLetters1 = (letters) => {
     const result = [];
 
     for(let i = 0; i < letters.length; i++) {
-        const isLettersEqual = letters[i] === letters[i].toUpperCase();
-        isLettersEqual ? result.push(letters[i].toLowerCase()) : result.push(letters[i].toUpperCase());
+        const letter = letters[i];
+        const isLetterBig = letter === letter.toUpperCase();
+        isLetterBig ? result.push(letter.toLowerCase()) : result.push(letter.toUpperCase());
     }
     return result;
 }
@@ -20,8 +21,9 @@ const changingCaseLetters2 = (letters) => {
     let i = 0;
 
     while(i < letters.length) {
-        const isLettersEqual = letters[i] === letters[i].toUpperCase();
-        isLettersEqual ? result.push(letters[i].toLowerCase()) : result.push(letters[i].toUpperCase());
+        const letter = letters[i];
+        const isLetterBig = letter === letter.toUpperCase();
+        isLetterBig ? result.push(letter.toLowerCase()) : result.push(letter.toUpperCase());
         i++;
     }
     return result;
@@ -33,8 +35,8 @@ const changingCaseLetters3 = (letters) => {
     const result = [];
 
     for(const letter of letters) {
-        const isLettersEqual = letter === letter.toUpperCase();
-        isLettersEqual ? result.push(letter.toLowerCase()) : result.push(letter.toUpperCase());
+        const isLetterBig = letter === letter.toUpperCase();
+        isLetterBig ? result.push(letter.toLowerCase()) : result.push(letter.toUpperCase());
     }
     return result;
 }

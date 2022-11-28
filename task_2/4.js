@@ -7,13 +7,12 @@ const returningStrings1 = (anyArray) => {
     const result = [];
 
     for(let i = 0; i < anyArray.length; i++){
-        if(typeof anyArray[i] === 'string') {
-            result.push(anyArray[i]);
+        const item = anyArray[i];
+        const isEven = item.length % 2 === 0;
+        const isString = typeof item === 'string';
+        if(isString && isEven) {
+            result.push(item);
         }
-    }
-
-    if(result.length % 2 === 1) {
-        return result.slice(0, result.length - 1);
     }
     return result;
 }
@@ -25,14 +24,13 @@ const returningStrings2 = (anyArray) => {
     let i = 0;
 
     while(i < anyArray.length){
-        if(typeof anyArray[i] === 'string') {
-            result.push(anyArray[i]);
+        const item = anyArray[i];
+        const isEven = item.length % 2 === 0;
+        const isString = typeof item === 'string';
+        if(isString && isEven) {
+            result.push(item);
         }
         i++;
-    }
-
-    if(result.length % 2 === 1) {
-        return result.slice(0, result.length - 1);
     }
     return result;
 }
@@ -43,22 +41,20 @@ const returningStrings3 = (anyArray) => {
     const result = [];
 
     for(const item of anyArray){
-        if(typeof item === 'string') {
+        const isEven = item.length % 2 === 0;
+        const isString = typeof item === 'string';
+        if( isString && isEven) {
             result.push(item);
         }
     }
-
-    if(result.length % 2 === 1) {
-        return result.slice(0, result.length - 1);
-    }
     return result;
+
 }
 console.log(returningStrings3(['Hi', 2, 3, 4, 5, 'JS', 2, 'C++']));
 
 //4
 const returningStrings4 = (anyArray) => {
-    const result = anyArray.filter(item => typeof item === 'string');
+    return anyArray.filter(item => (typeof item === 'string') && (item.length % 2 === 0));
 
-    return result.length % 2 === 1 ? result.slice(0, result.length - 1) : result;
 }
 console.log(returningStrings4(['Hi', 2, 3, 4, 5, 'JS', 2, 'C++']));
