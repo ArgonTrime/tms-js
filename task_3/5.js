@@ -55,29 +55,21 @@ const users = [
 ];
 
 const separationGenderUsers = (users) => {
-    const maleUsers = users.reduce((result, user) => {
-        const {first_name, last_name, ...remainingKey} = user;
-        if(user.gender === 'Male') {
-            result.push(
-                {fullName: `${first_name} ${last_name}`, ...remainingKey}
-            );
-        }
-        return result;
-    }, []);
-    const femaleUsers = users.reduce((result, user) => {
-        const {first_name, last_name, ...remainingKey} = user;
-        if(user.gender === 'Female') {
-            result.push(
-                {fullName: `${first_name} ${last_name}`, ...remainingKey}
-            );
-        }
-        return result;
-    }, []);
+  return users.reduce((result, user) => {
+    const {first_name, last_name, ...remainingKey} = user;
+    const {gender} = user;
+    const {men, women} = result;
+    const modifiedUser = {fullName: `${first_name} ${last_name}`, ...remainingKey};
 
-    return {
-        women: femaleUsers,
-        men: maleUsers,
+    if(gender === 'Male') {
+      men.push(modifiedUser);
     }
+    if(gender === 'Female') {
+      women.push(modifiedUser);
+    }
+
+    return result;
+  }, {men: [], women: []})
 }
 
 console.log(separationGenderUsers(users));

@@ -19,11 +19,7 @@ const users = [
     },
 ]
 
-const removeUsers = (users, userRemoveIds) => {
-    return users.filter(({id}) => {
-        return userRemoveIds.find(() => !userRemoveIds.includes(id));
-    });
-}
+const removeUsers = (users, userRemoveIds) => users.filter(({id: userId}) => !userRemoveIds.includes(userId));
 
 console.log(removeUsers(users, [2, 3]));
 console.log(removeUsers(users, [3]));
