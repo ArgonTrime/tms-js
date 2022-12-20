@@ -10,13 +10,11 @@ const decodeCamelCaseString = (anyString) => {
 
     const lettersArray = anyString.split('');
     let resultString = ``;
-    let i = 0;
-
-    while(i < lettersArray.length) {
-        const letter = lettersArray[i];
+    
+    for(const letter of lettersArray) {
         const capitalLetter = letter.toUpperCase();
-        ((letter === capitalLetter) && (i !== 0)) ? resultString += ` ${letter}` : resultString += `${letter}`;
-        i++;
+
+        letter === capitalLetter ? resultString += ` ${letter}` : resultString += `${letter}`;
     }
 
     return resultString;

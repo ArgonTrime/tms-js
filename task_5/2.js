@@ -31,5 +31,5 @@ const findMissing = (numbers) => {
 
 console.log(findMissing([1, 3, 5, 9, 11]));
 console.log(findMissing([5, 7, 9, 13, 15, 17]));
-console.log(findMissing([1, 6, 11, 16, 21, 26]));
+console.log(findMissing([1, 6, 11, 21, 26]));
 console.log(findMissing([2, 8, 11]));

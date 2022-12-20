@@ -15,10 +15,9 @@ const searchPairsGloves = (arrayColorGloves) => {
     let countPairsGloves = 0;
 
     for(const colorGloves in countGlovesCollection) {
-        let countGloves = countGlovesCollection[colorGloves];
-
-        if(countGloves % 2 === 0) countPairsGloves += countGloves;
-        if((countGloves - 1) % 2 === 0) countPairsGloves += countGloves - 1;
+        const countGloves = countGlovesCollection[colorGloves];
+        
+        countGloves % 2 === 0 ? countPairsGloves += countGloves : countPairsGloves += Math.floor(countGloves - 1);
     }
 
     return countPairsGloves / 2;
