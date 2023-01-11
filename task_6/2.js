@@ -28,5 +28,16 @@ const sortNumberZeroEnd = (numbers) => {
     return numbers;
 }
 
-console.log(sortNumberZeroEnd([7, 2, 3, 0, 4, 6, 0, 0, 13, 0, 78, 0, 0, 19, 14]));
-console.log(sortNumberZeroEnd([0, 4, 2, 0, 2, 1, 0, 1]));
+const sortNumberZeroEnd2 = (arrayNumbers) => {
+    const numbers = [];
+    const zeros = [];
+
+    for(const number of arrayNumbers) {
+        ((number === 0) || (number === '0')) ? zeros[zeros.length] = number : numbers[numbers.length] = number;
+    }
+
+    return [...numbers, ...zeros];
+}
+
+console.log(sortNumberZeroEnd2([7, 2, 3, 0, 4, 6, 0, 0, 13, 0, 78, 0, 0, 19, 14]));
+console.log(sortNumberZeroEnd2([0, 4, 2, 0, 2, 1, 0, 1]));
