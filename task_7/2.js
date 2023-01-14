@@ -3,24 +3,33 @@
 // Поле массив, так как у одного пользователя может быть более 1-го поста.
 
 const getUsersWithPosts = async () => {
+    const MY_URL = 'https://jsonplaceholder.typicode.com/';
+
     try {
-        const posts = await fetch('https://jsonplaceholder.typicode.com/posts')
-        .then(responce => responce.json());
+        const [users, posts] = await Promise.all([
+            fetch(`${MY_URL}users`).then(responce => responce.json()),
+            fetch(`${MY_URL}posts`).then(responce => responce.json())
+        ]);
 
-        const users = await fetch('https://jsonplaceholder.typicode.com/users')
-            .then(responce => responce.json());
-
-        const result = users.map(user => {
-            const {id} = user;
-            if(!user.myPosts) {
-                user.myPosts = [];
+        const postsUserId = new Map();
+        for(const {userId, title} of posts) {
+            if(!postsUserId.has(userId)) {
+                postsUserId.set(userId, [])
             }
+            postsUserId.get(userId).push(title);
+        }
 
-            const comments = posts.filter(({userId}) => userId === id);
-            user.myPosts.push([...comments]);
+        const usersWithPosts = users.map(user => {
+            const {id} = user;
+            if(!user.myPost) {
+                user.myPost = []
+            }
+            user.myPost.push([...postsUserId.get(id)]);
             return user;
         });
-        return console.log(result);
+        
+        return console.log(usersWithPosts);
+  
     } catch(error) {
         return new Error('Oops, something went wrong!');
     }
