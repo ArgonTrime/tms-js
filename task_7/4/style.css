@@ -1,0 +1,19 @@
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.user {
+    width: 300px;
+    background-color: #FFFDF4;
+    border: 1px solid #e8e3e3;
+    border-radius: 5px;
+    padding: 5px;
+}
+.user_nameTag {
+    text-align: center;
+}
+h2 {
+    color: #BF3A30;
+    text-align: center;
+}
