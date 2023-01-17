@@ -7,7 +7,7 @@ const customEntries = (obj) => {
     const result = [];
 
     for(const key in obj) {
-        result.push(['' + key, obj[key]]);
+        result.push([key, obj[key]]);
     }
 
     return result;
