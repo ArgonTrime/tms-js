@@ -108,6 +108,11 @@ const numberSearchGame2 = () => {
 //______________________________
 const numberSearchGame3 = () => {
     const RANDOM_NUMBER = Math.ceil(Math.random() * 100);
+    const difficultyLevel = {
+        easy: 7,
+        medium: 5,
+        hard: 3,
+    };
     let userNumber = 0;
     let usersCount = 0;
     const playerList = [];
@@ -148,26 +153,16 @@ const numberSearchGame3 = () => {
     }
     //set difficulty level
     const setDifficultyLevel = () => {
-        let value = +prompt(`
-            Введите уровень сложности от 1 до 3:
-            1 - легкий (7 попыток), 2 - средний (5 попыток), 3 - сложный (3 попытки). 
-        `, '');
-        if(!isNaN(value) && value >= 1 && value <= 3) {
-            switch(value) {
-                case 1:
-                    countStepFindNumber = 7;
-                    break;
-                case 2:
-                    countStepFindNumber = 5;
-                    break;
-                case 3:
-                    countStepFindNumber = 3;
-                    break;
-            }
+        let value = prompt(`
+            Введите уровень сложности, влияющий на количество попыток.
+            ${JSON.stringify(difficultyLevel)}
+        `);
+        if(difficultyLevel[value]) {
+            countStepFindNumber = difficultyLevel[value];
             return;
         }
         alert('Введите корректное значение уровня сложности');
-        return inputUsersCountPlayGame();
+        return setDifficultyLevel();
     }
 
     //single player and more players
